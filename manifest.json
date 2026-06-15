@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok DM - Jump to last reacted video",
+  "description": "Bấm 1 nút để nhảy tới video gần nhất bạn đã thả reaction trong tin nhắn TikTok web.",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.tiktok.com/*"],
+      "js": [
+        "src/dom-selectors.js",
+        "src/finder.js",
+        "src/ui-panel.js",
+        "src/content-script.js"
+      ],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
