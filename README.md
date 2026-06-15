@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/icon-128.png" width="96" alt="TikTok DM Helper logo"></p>
+
 # TikTok DM Helper
 
 **Language:** **English** · [Tiếng Việt](README.vi.md)

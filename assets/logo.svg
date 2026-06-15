@@ -1,0 +1,18 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- background: TikTok-black rounded square -->
+  <rect width="128" height="128" rx="28" fill="#010101"/>
+
+  <!-- chat bubble: cyan/pink duotone offset -->
+  <g>
+    <path d="M34 30h56a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H58l-18 16v-16h-6a14 14 0 0 1-14-14V44a14 14 0 0 1 14-14z"
+          fill="#25F4EE" transform="translate(-3 -3)"/>
+    <path d="M34 30h56a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H58l-18 16v-16h-6a14 14 0 0 1-14-14V44a14 14 0 0 1 14-14z"
+          fill="#FE2C55" transform="translate(3 3)"/>
+    <path d="M34 30h56a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H58l-18 16v-16h-6a14 14 0 0 1-14-14V44a14 14 0 0 1 14-14z"
+          fill="#FFFFFF"/>
+  </g>
+
+  <!-- jump-up arrow inside the bubble -->
+  <path d="M62 76V49" stroke="#010101" stroke-width="9" stroke-linecap="round"/>
+  <path d="M48 58l14-14 14 14" stroke="#010101" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
