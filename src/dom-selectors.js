@@ -10,7 +10,6 @@ TTReact.sel = {
   S: {
     messageList: '[data-e2e="dm-new-message-list"]',
     item: '[data-e2e="dm-new-chat-item"]',
-    horizontal: '[data-area="Actions"]',
     reactionDisplay: '[data-e2e="dm-new-reaction-display"]',
     sharedVideo: '[data-e2e="dm-new-shared-video"]',
     msgIdIcon: '[id^="more-action-icon-msg-"]',
@@ -42,20 +41,29 @@ TTReact.sel = {
     return [...items];
   },
 
-  // A reaction the logged-in user placed sits on an INCOMING message (the other
-  // person's bubble). Incoming vs outgoing is told ONLY by the computed
-  // flex-direction of the horizontal container: row = incoming (B),
-  // row-reverse = outgoing (me). Avatar presence / hash classes are unreliable.
-  isIncoming(item) {
-    const h = item.querySelector(this.S.horizontal) || item.querySelector('[data-area]');
-    if (!h) return false;
-    return getComputedStyle(h).flexDirection === 'row';
-  },
+  // TikTok's red highlight color (#FF4C3A) applied as an outline to the badge
+  // of the reaction the LOGGED-IN USER placed. Other people's reaction badges
+  // render with outline-style:none. This is the only reliable inline signal.
+  SELF_REACTION_OUTLINE: 'rgb(255, 76, 58)',
 
-  // The already-placed reaction badge is always in the DOM (not hover-only),
-  // distinct from the hover "react" button [data-e2e="dm-new-reaction-btn"].
-  hasReaction(item) {
-    return !!item.querySelector(this.S.reactionDisplay);
+  // Did the logged-in user place a reaction on this message?
+  //
+  // NOTE: flex-direction (row/row-reverse) of [data-area="Actions"] only tells
+  // you who SENT the message, NOT who reacted — confirmed by a reaction the
+  // other person placed on one of my own (row-reverse) messages. The badge
+  // markup, aria-* and hashed css-* classes are identical regardless of who
+  // reacted. The single distinguishing signal is the red self-outline TikTok
+  // paints on your own reaction badge. A message may carry several reaction
+  // badges (e.g. in a group); we match if ANY of them is mine.
+  isMyReaction(item) {
+    const badges = item.querySelectorAll(this.S.reactionDisplay);
+    for (const b of badges) {
+      const cs = getComputedStyle(b);
+      if (cs.outlineStyle !== 'none' && cs.outlineColor === this.SELF_REACTION_OUTLINE) {
+        return true;
+      }
+    }
+    return false;
   },
 
   isSharedVideo(item) {
@@ -68,9 +76,10 @@ TTReact.sel = {
     return ic ? ic.id.replace('more-action-icon-msg-', '') : null;
   },
 
-  // Target test: my reaction (=> incoming) + has a reaction, optionally video-only.
+  // Target test: a reaction *I* placed, optionally restricted to shared videos.
+  // Works for 1-1 and group threads alike — direction is irrelevant.
   matches(item, videoOnly) {
-    return this.isIncoming(item) && this.hasReaction(item) &&
+    return this.isMyReaction(item) &&
       (videoOnly ? this.isSharedVideo(item) : true);
   },
 

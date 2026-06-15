@@ -8,8 +8,9 @@ Thanks for your interest in improving **TikTok DM Helper**! This guide covers ho
 - **Send a fix or feature** — fork the repo, make your change, and open a Pull Request. Keep PRs focused on one thing and describe what changed.
 
 ## How it works
-- "Your reaction" = a reaction badge on a message the **other person sent** (incoming). Correct for 1-on-1 chats.
-- A conversation opens at the bottom (newest). The extension scrolls **up**, lazy-loading older messages, and stops at the **first incoming message with a reaction found from the bottom up** = the most recent one.
+- "Your reaction" = a reaction badge **you** placed, on any message (yours or theirs). TikTok paints your own reaction badge with a red outline (`#FF4C3A`, `outline-style ≠ none`); other people's reactions have no outline. This is the only reliable inline signal — message direction (who *sent* it) does **not** tell you who *reacted*.
+- A conversation opens at the bottom (newest). The extension scrolls **up**, lazy-loading older messages, and stops at the **first message with your reaction found from the bottom up** = the most recent one.
+- A message can carry several reaction badges (e.g. in a group); it matches if **any** badge is yours. Group threads have not been tested against live DOM yet — the logic generalizes, but verify if you have a group chat.
 - The DOM contains no video link, so the extension only scrolls and highlights; the user clicks the video to watch it.
 
 ## Project structure

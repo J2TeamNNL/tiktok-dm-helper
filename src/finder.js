@@ -1,4 +1,4 @@
-// Finder: locate the most-recent INCOMING message I reacted to by scrolling up
+// Finder: locate the most-recent message *I* reacted to by scrolling up
 // (lazy-loading older messages) until a match is found or the top is reached.
 
 window.TTReact = window.TTReact || {};
