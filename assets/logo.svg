@@ -12,7 +12,8 @@
           fill="#FFFFFF"/>
   </g>
 
-  <!-- jump-up arrow inside the bubble -->
-  <path d="M62 76V49" stroke="#010101" stroke-width="9" stroke-linecap="round"/>
-  <path d="M48 58l14-14 14 14" stroke="#010101" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- wrench inside the bubble: signals a toolkit of helpers (Lucide wrench path) -->
+  <g transform="translate(36 34) scale(2.18)" stroke="#010101" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+  </g>
 </svg>
