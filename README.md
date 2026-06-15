@@ -1,8 +1,15 @@
-# TikTok DM — Jump to Last Reacted Video
+# TikTok DM Helper
 
 **Language:** **English** · [Tiếng Việt](README.vi.md)
 
-A **client-side** Chrome extension (Manifest V3) for `tiktok.com/messages`. One click → it scrolls to the **most recent video you reacted to** (a video the other person sent you), centers it on screen, and highlights it. No API calls, no data leaves your browser.
+A lightweight, **client-side** Chrome extension (Manifest V3) that adds handy tools to the TikTok web messages page (`tiktok.com/messages`). Everything runs in your browser — no API calls, no data leaves your machine.
+
+It's built to grow: each tool shows up in one small floating panel.
+
+## Features
+- **⤴ Jump to last reacted video** — one click scrolls to the most recent video you reacted to (a video the other person sent you), centers it on screen, and highlights it.
+
+> More helpers are planned. Suggestions welcome via Issues.
 
 ## Install (Load unpacked)
 1. Open `chrome://extensions`.
@@ -12,7 +19,7 @@ A **client-side** Chrome extension (Manifest V3) for `tiktok.com/messages`. One 
 ## Usage
 1. Open `https://www.tiktok.com/messages` and enter a conversation.
 2. A floating panel appears in the bottom-right corner:
-   - **⤴ Latest reacted video** — click to jump to the most recent video you reacted to.
+   - **⤴ Latest reacted video** — jump to the most recent video you reacted to.
    - **Videos only** (on by default) — uncheck to also count reacted text/image messages.
    - While running, a progress line and a **Cancel** button are shown.
 

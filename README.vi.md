@@ -1,8 +1,15 @@
-# TikTok DM — Nhảy tới video reaction gần nhất
+# TikTok DM Helper
 
 **Ngôn ngữ:** [English](README.md) · **Tiếng Việt**
 
-Chrome extension (Manifest V3) chạy **client-side** trên `tiktok.com/messages`. Bấm 1 nút → tự cuộn tới **video gần nhất mà bạn đã thả reaction** (video người kia gửi cho bạn), đưa vào giữa màn hình và làm nổi bật. Không gọi API, không gửi dữ liệu ra ngoài.
+Chrome extension (Manifest V3) gọn nhẹ, chạy **client-side**, bổ sung các tiện ích cho trang tin nhắn TikTok web (`tiktok.com/messages`). Mọi thứ chạy trong trình duyệt — không gọi API, không gửi dữ liệu ra ngoài.
+
+Thiết kế để mở rộng dần: mỗi tiện ích hiện trong một panel nổi nhỏ gọn.
+
+## Tính năng
+- **⤴ Nhảy tới video reaction gần nhất** — bấm 1 nút để cuộn tới video gần nhất bạn đã thả reaction (video người kia gửi cho bạn), đưa vào giữa màn hình và làm nổi bật.
+
+> Sẽ có thêm tiện ích. Góp ý qua Issues.
 
 ## Cài đặt (Load unpacked)
 1. Mở `chrome://extensions`.

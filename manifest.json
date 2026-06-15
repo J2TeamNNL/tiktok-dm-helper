@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "TikTok DM - Jump to last reacted video",
-  "description": "Bấm 1 nút để nhảy tới video gần nhất bạn đã thả reaction trong tin nhắn TikTok web.",
+  "name": "TikTok DM Helper",
+  "description": "Bộ tiện ích client-side cho tin nhắn TikTok web. Tính năng đầu tiên: nhảy tới video gần nhất bạn đã thả reaction.",
   "version": "0.1.0",
   "permissions": ["storage"],
   "content_scripts": [
