@@ -2,40 +2,22 @@
 
 **Language:** **English** · [Tiếng Việt](README.vi.md)
 
-A lightweight, **client-side** Chrome extension (Manifest V3) that adds handy tools to the TikTok web messages page (`tiktok.com/messages`). Everything runs in your browser — no API calls, no data leaves your machine.
+A small, free Chrome add-on for TikTok's web messages. It runs entirely in your browser — nothing is sent anywhere.
 
-It's built to grow: each tool shows up in one small floating panel.
+## What it does
+- **Find your last reacted video** — click one button and it scrolls back to the most recent video you reacted to in a chat, and highlights it for you.
 
-## Features
-- **⤴ Jump to last reacted video** — one click scrolls to the most recent video you reacted to (a video the other person sent you), centers it on screen, and highlights it.
+More handy tools are on the way.
 
-> More helpers are planned. Suggestions welcome via Issues.
+## Install
+1. Open `chrome://extensions` in Chrome.
+2. Turn on **Developer mode** (top-right switch).
+3. Click **Load unpacked** and pick this folder.
 
-## Install (Load unpacked)
-1. Open `chrome://extensions`.
-2. Enable **Developer mode** (top right).
-3. Click **Load unpacked** → select this folder.
+## How to use
+1. Go to `https://www.tiktok.com/messages` and open a chat.
+2. A small panel appears in the bottom-right corner.
+3. Click **⤴ Latest reacted video** — it finds and highlights the video. Then click the video to watch it.
 
-## Usage
-1. Open `https://www.tiktok.com/messages` and enter a conversation.
-2. A floating panel appears in the bottom-right corner:
-   - **⤴ Latest reacted video** — jump to the most recent video you reacted to.
-   - **Videos only** (on by default) — uncheck to also count reacted text/image messages.
-   - While running, a progress line and a **Cancel** button are shown.
-
-## How it works
-- "Your reaction" = a reaction badge on a message the **other person sent** (incoming). Correct for 1-on-1 chats.
-- A conversation opens at the bottom (newest). The extension scrolls **up**, lazy-loading older messages, and stops at the **first incoming message with a reaction found from the bottom up** = the most recent one.
-- The DOM contains no video link, so the extension only scrolls and highlights; you click the video yourself to watch it.
-
-## Structure
-- `manifest.json` — MV3 declaration.
-- `src/dom-selectors.js` — all selectors + detection rules (edit here if TikTok changes its DOM).
-- `src/finder.js` — scroll-up & scan algorithm.
-- `src/ui-panel.js` — floating panel, toggle, progress/cancel, highlight, toast.
-- `src/content-script.js` — mount/unmount panel on SPA navigation.
-- `styles.css` — panel + highlight styles.
-
-## Notes
-- Selectors are based on TikTok's DOM as of June 2026; if TikTok changes its DOM, update `src/dom-selectors.js` (it already logs a `console.warn` when a selector fails to match).
-- Purely client-side on your own account (only scrolls/reads the DOM — never sends or adds reactions) → low risk, but still light automation on the TikTok web app.
+## Want to help?
+Found a bug, have an idea, or want to add a feature? See [CONTRIBUTING.md](CONTRIBUTING.md).
